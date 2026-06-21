@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TechHer MW — Brand Identity Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --magenta:     #A8005C;
+    --magenta-mid: #C9006E;
+    --magenta-soft:#E8006F;
+    --blush:       #FFE4EF;
+    --blush-mid:   #FFD0E6;
+    --blush-deep:  #F5A8CC;
+    --gold:        #C8882A;
+    --gold-light:  #F5D08A;
+    --gold-pale:   #FFF8E8;
+    --cream:       #FFFAF5;
+    --warm-white:  #FFF5F9;
+    --ink:         #1E0A14;
+    --ink-mid:     #4A1830;
+    --grey:        #9A7A8A;
+    --light-grey:  #EFE0E8;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(28px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  @keyframes shimmer {
+    0%   { background-position: -400px 0; }
+    100% { background-position: 400px 0; }
+  }
+  @keyframes floatDot {
+    0%,100% { transform: translateY(0px); }
+    50%      { transform: translateY(-8px); }
+  }
+
+  section { animation: fadeUp 0.8s ease both; }
+  section:nth-child(2) { animation-delay:0.1s; }
+  section:nth-child(3) { animation-delay:0.2s; }
+  section:nth-child(4) { animation-delay:0.3s; }
+  section:nth-child(5) { animation-delay:0.4s; }
+  section:nth-child(6) { animation-delay:0.5s; }
+  section:nth-child(7) { animation-delay:0.6s; }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    background: var(--magenta);
+    padding: 20px 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .page-header .doc-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+  }
+  .page-header .version {
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--magenta) 0%, #7A0044 60%, #3D0022 100%);
+    padding: 100px 64px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,180,220,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 350px; height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,136,42,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* decorative dots */
+  .hero-dots {
+    position: absolute;
+    top: 40px; right: 64px;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: 10px;
+    opacity: 0.2;
+  }
+  .hero-dots span {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: white;
+    animation: floatDot 3s ease-in-out infinite;
+  }
+  .hero-dots span:nth-child(odd)  { animation-delay: 0.5s; }
+  .hero-dots span:nth-child(3n)   { animation-delay: 1s; }
+
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+  }
+
+  /* SVG Logo Mark */
+  .hero-logo-mark { flex-shrink: 0; }
+
+  .hero-wordmark { flex: 1; min-width: 280px; }
+
+  .wordmark-main {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -1px;
+  }
+  .wordmark-tech {
+    display: block;
+    font-size: 100px;
+    color: white;
+  }
+  .wordmark-her {
+    display: block;
+    font-size: 100px;
+    color: var(--gold-light);
+    font-style: italic;
+  }
+  .wordmark-mw {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 10px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 12px;
+    text-transform: uppercase;
+  }
+  .wordmark-tagline {
+    margin-top: 24px;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.6);
+    border-left: 3px solid var(--gold-light);
+    padding-left: 16px;
+    font-style: italic;
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .section-wrap {
+    padding: 80px 64px;
+    border-bottom: 1px solid var(--light-grey);
+  }
+
+  .section-tag {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .section-tag .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--magenta-soft);
+  }
+  .section-tag .label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+  }
+  .section-tag::after {
+    content:'';
+    flex:1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--blush-deep), transparent);
+  }
+
+  /* ── LOGO VARIATIONS ── */
+  .logo-vars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    margin-top: 8px;
+  }
+
+  .lv {
+    padding: 56px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: transform 0.3s;
+    cursor: default;
+  }
+  .lv:hover { transform: translateY(-4px); }
+
+  .lv-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .lv.on-cream    { background: var(--cream); border: 1px solid var(--light-grey); }
+  .lv.on-blush    { background: var(--blush); }
+  .lv.on-magenta  { background: var(--magenta); }
+
+  .lv.on-cream   .lv-label { color: var(--grey); }
+  .lv.on-blush   .lv-label { color: var(--magenta-mid); }
+  .lv.on-magenta .lv-label { color: rgba(255,255,255,0.45); }
+
+  .mini-wordmark {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 1;
+    letter-spacing: -0.5px;
+  }
+
+  /* ── MISSION ── */
+  .mission-section {
+    background: linear-gradient(135deg, var(--blush) 0%, var(--gold-pale) 100%);
+    padding: 96px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .mission-section::before {
+    content: '\201C';
+    position: absolute;
+    top: -60px; left: 40px;
+    font-family: 'Playfair Display', serif;
+    font-size: 500px;
+    color: rgba(168,0,92,0.06);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .mission-quote {
+    max-width: 860px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    line-height: 1.7;
+    color: var(--ink);
+    position: relative;
+    z-index: 1;
+  }
+  .mission-quote em {
+    color: var(--magenta);
+    font-style: italic;
+  }
+  .mission-quote strong {
+    color: var(--magenta);
+    font-style: normal;
+  }
+  .mission-attr {
+    margin-top: 32px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--grey);
+    text-transform: uppercase;
+  }
+
+  /* ── COLORS ── */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+  }
+  .swatch { display:flex; flex-direction:column; gap:10px; }
+  .swatch-block {
+    height: 110px;
+    border-radius: 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .swatch-block:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(168,0,92,0.15);
+  }
+  .sw-magenta  { background: var(--magenta); }
+  .sw-magenta-s{ background: var(--magenta-soft); }
+  .sw-blush    { background: var(--blush-mid); }
+  .sw-gold     { background: var(--gold); }
+  .sw-gold-l   { background: var(--gold-light); border: 1px solid #e8c870; }
+  .sw-ink      { background: var(--ink); }
+
+  .swatch-name { font-size: 13px; font-weight: 700; color: var(--ink); }
+  .swatch-hex  { font-size: 11px; color: var(--grey); font-family: monospace; letter-spacing:1px; }
+  .swatch-role { font-size: 10px; color: #b89aaa; line-height:1.5; }
+
+  /* ── TYPOGRAPHY ── */
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .type-card {
+    background: var(--warm-white);
+    border: 1px solid var(--blush-mid);
+    border-radius: 20px;
+    padding: 48px;
+    transition: box-shadow 0.3s;
+  }
+  .type-card:hover {
+    box-shadow: 0 8px 40px rgba(168,0,92,0.08);
+  }
+  .type-display {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 1;
+    color: var(--magenta);
+    margin-bottom: 20px;
+  }
+  .type-display em { font-style: italic; color: var(--ink); }
+  .type-body-sample {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--grey);
+    font-weight: 300;
+    margin-bottom: 24px;
+    border-left: 3px solid var(--blush-deep);
+    padding-left: 16px;
+  }
+  .type-label-sample {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--magenta-soft);
+    margin-bottom: 24px;
+    display: block;
+  }
+  .type-meta {
+    border-top: 1px solid var(--light-grey);
+    padding-top: 20px;
+  }
+  .type-font-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--magenta);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .type-font-use {
+    font-size: 12px;
+    color: var(--grey);
+    line-height: 1.6;
+  }
+
+  /* ── VOICE ── */
+  .voice-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .voice-card {
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  .voice-card:hover { transform: translateY(-6px); }
+  .vc1 { background: var(--magenta); color: white; }
+  .vc2 { background: var(--gold-pale); border: 1px solid var(--gold-light); }
+  .vc3 { background: var(--blush); border: 1px solid var(--blush-deep); }
+
+  .voice-card::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; right: -30px;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    pointer-events: none;
+  }
+
+  .voice-word {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .vc1 .voice-word { color: var(--gold-light); }
+  .vc2 .voice-word { color: var(--gold); }
+  .vc3 .voice-word { color: var(--magenta); }
+
+  .voice-desc {
+    font-size: 13px;
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 24px;
+  }
+  .vc1 .voice-desc { color: rgba(255,255,255,0.75); }
+  .vc2 .voice-desc { color: var(--ink-mid); }
+  .vc3 .voice-desc { color: var(--ink-mid); }
+
+  .voice-pill {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 4px 4px 0 0;
+    letter-spacing: 0.3px;
+  }
+  .vc1 .voice-pill { background: rgba(255,255,255,0.15); color: white; }
+  .vc2 .voice-pill { background: var(--gold-light); color: var(--ink); }
+  .vc3 .voice-pill { background: var(--blush-deep); color: var(--magenta); }
+
+  /* ── SOCIAL ── */
+  .social-intro {
+    font-size: 15px;
+    color: var(--grey);
+    margin-bottom: 32px;
+    font-weight: 300;
+    max-width: 600px;
+    line-height: 1.7;
+  }
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .social-card {
+    border-radius: 20px;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .social-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(168,0,92,0.2);
+    z-index: 2;
+  }
+  .sc1 { background: linear-gradient(135deg, var(--magenta) 0%, #7A0044 100%); }
+  .sc2 { background: linear-gradient(135deg, var(--gold) 0%, #A06010 100%); }
+  .sc3 { background: linear-gradient(135deg, var(--blush-mid) 0%, var(--blush-deep) 100%); }
+  .sc4 { background: linear-gradient(135deg, #6B003C 0%, var(--magenta) 100%); }
+  .sc5 { background: linear-gradient(135deg, var(--gold-pale) 0%, var(--blush) 100%); border: 1px solid var(--light-grey); }
+  .sc6 { background: linear-gradient(135deg, var(--blush-deep) 0%, var(--magenta-soft) 100%); }
+
+  .social-card .sc-tag {
+    position: absolute;
+    top: 24px; left: 24px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+  .sc1 .sc-tag,.sc2 .sc-tag,.sc4 .sc-tag,.sc6 .sc-tag { color: white; }
+  .sc3 .sc-tag { color: var(--magenta); }
+  .sc5 .sc-tag { color: var(--grey); }
+
+  .social-card .sc-handle {
+    position: absolute;
+    top: 24px; right: 24px;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    opacity: 0.45;
+  }
+  .sc1 .sc-handle,.sc2 .sc-handle,.sc4 .sc-handle,.sc6 .sc-handle { color: white; }
+  .sc3 .sc-handle { color: var(--magenta); }
+  .sc5 .sc-handle { color: var(--grey); }
+
+  .sc-headline {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 1.1;
+    position: relative;
+    z-index:1;
+  }
+  .sc1 .sc-headline,.sc2 .sc-headline,.sc4 .sc-headline,.sc6 .sc-headline { color: white; }
+  .sc3 .sc-headline { color: var(--magenta); }
+  .sc5 .sc-headline { color: var(--ink); }
+
+  .sc-sub {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-top: 6px;
+    opacity: 0.7;
+    position: relative;
+    z-index:1;
+  }
+  .sc1 .sc-sub,.sc2 .sc-sub,.sc4 .sc-sub,.sc6 .sc-sub { color: white; }
+  .sc3 .sc-sub { color: var(--magenta-mid); }
+  .sc5 .sc-sub { color: var(--ink-mid); }
+
+  /* decorative circle on cards */
+  .social-card::before {
+    content:'';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.07);
+    pointer-events: none;
+  }
+
+  /* ── USAGE ── */
+  .usage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .usage-card {
+    border-radius: 20px;
+    padding: 40px;
+  }
+  .usage-do   { background: linear-gradient(135deg, var(--blush) 0%, var(--gold-pale) 100%); border: 1px solid var(--blush-deep); }
+  .usage-dont { background: var(--warm-white); border: 1px solid var(--light-grey); }
+
+  .usage-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .usage-do   .usage-title { color: var(--magenta); }
+  .usage-dont .usage-title { color: var(--grey); }
+
+  .usage-card ul { list-style: none; display:flex; flex-direction:column; gap:14px; }
+  .usage-card ul li {
+    font-size: 14px;
+    line-height: 1.6;
+    padding-left: 24px;
+    position: relative;
+    font-weight: 300;
+    color: var(--ink-mid);
+  }
+  .usage-do   ul li::before { content:'✦'; position:absolute; left:0; color:var(--magenta-soft); font-size:11px; top:2px; }
+  .usage-dont ul li::before { content:'✕'; position:absolute; left:0; color:#c8a0b0; font-size:11px; top:2px; }
+
+  /* ── FOOTER ── */
+  .brand-footer {
+    background: var(--magenta);
+    padding: 40px 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: white;
+    letter-spacing: -0.5px;
+  }
+  .footer-logo em { font-style: italic; color: var(--gold-light); }
+  .footer-note { font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 2px; }
+
+  @media(max-width:900px){
+    .section-wrap,.hero { padding: 60px 24px; }
+    .color-grid { grid-template-columns: repeat(3,1fr); }
+    .type-grid,.voice-grid,.usage-grid,.social-grid,.logo-vars { grid-template-columns:1fr; }
+    .wordmark-tech,.wordmark-her { font-size:72px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="page-header">
+  <span class="doc-label">TechHer MW — Brand Identity Kit</span>
+  <span class="version">Version 2.0 · 2025</span>
+</div>
+
+<!-- ══ HERO / LOGO ══════════════════════════════════════════════════════ -->
+<div class="hero">
+  <!-- decorative dots grid -->
+  <div class="hero-dots">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="hero-inner">
+    <!-- Logo Mark SVG -->
+    <svg class="hero-logo-mark" width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Outer petal ring — feminine tech bloom -->
+      <circle cx="70" cy="70" r="66" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+      <circle cx="70" cy="70" r="50" fill="none" stroke="rgba(245,208,138,0.3)" stroke-width="1.5"/>
+      <!-- Circuit arc top -->
+      <path d="M70 4 A66 66 0 0 1 136 70" fill="none" stroke="rgba(245,208,138,0.5)" stroke-width="2"/>
+      <!-- Circuit arc bottom -->
+      <path d="M70 136 A66 66 0 0 1 4 70" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+      <!-- Inner glow circle -->
+      <circle cx="70" cy="70" r="34" fill="rgba(255,210,230,0.08)"/>
+      <circle cx="70" cy="70" r="22" fill="rgba(255,210,230,0.12)"/>
+      <!-- Female symbol — elegant -->
+      <!-- Circle -->
+      <circle cx="70" cy="62" r="14" fill="none" stroke="white" stroke-width="2.5"/>
+      <!-- Arrow pointing up-right -->
+      <line x1="80" y1="52" x2="92" y2="40" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+      <polyline points="85,40 92,40 92,47" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Stem -->
+      <line x1="70" y1="76" x2="70" y2="92" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Cross -->
+      <line x1="62" y1="84" x2="78" y2="84" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Gold accent dot nodes -->
+      <circle cx="70"  cy="4"   r="4" fill="#F5D08A"/>
+      <circle cx="136" cy="70"  r="4" fill="#F5D08A"/>
+      <circle cx="4"   cy="70"  r="4" fill="rgba(245,208,138,0.4)"/>
+      <circle cx="70"  cy="136" r="4" fill="rgba(245,208,138,0.4)"/>
+      <!-- Small circuit tick marks -->
+      <line x1="70"  y1="4"   x2="70"  y2="20"  stroke="#F5D08A" stroke-width="2"/>
+      <line x1="136" cy="70"  x2="120" y2="70"  stroke="#F5D08A" stroke-width="2"/>
+    </svg>
+
+    <div class="hero-wordmark">
+      <div class="wordmark-main">
+        <span class="wordmark-tech">Tech</span>
+        <span class="wordmark-her">Her</span>
+        <span class="wordmark-mw">MW</span>
+      </div>
+      <div class="wordmark-tagline">Women · Technology · Power · Malawi & Beyond</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ LOGO VARIATIONS ══════════════════════════════════════════════════ -->
+<section class="section-wrap">
+  <div class="section-tag">
+    <span class="num">01</span>
+    <span class="label">Logo Variations</span>
+  </div>
+
+  <div class="logo-vars">
+    <!-- On cream -->
+    <div class="lv on-cream">
+      <svg width="52" height="52" viewBox="0 0 140 140" fill="none">
+        <circle cx="70" cy="70" r="66" fill="none" stroke="rgba(168,0,92,0.15)" stroke-width="1.5"/>
+        <circle cx="70" cy="70" r="50" fill="none" stroke="rgba(200,136,42,0.3)" stroke-width="1.5"/>
+        <path d="M70 4 A66 66 0 0 1 136 70" fill="none" stroke="rgba(200,136,42,0.5)" stroke-width="2"/>
+        <circle cx="70" cy="62" r="14" fill="none" stroke="#A8005C" stroke-width="2.5"/>
+        <line x1="80" y1="52" x2="92" y2="40" stroke="#A8005C" stroke-width="2.5" stroke-linecap="round"/>
+        <polyline points="85,40 92,40 92,47" fill="none" stroke="#A8005C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="70" y1="76" x2="70" y2="92" stroke="#A8005C" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="62" y1="84" x2="78" y2="84" stroke="#A8005C" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="70" cy="4" r="4" fill="#C8882A"/>
+        <circle cx="136" cy="70" r="4" fill="#C8882A"/>
+      </svg>
+      <div class="mini-wordmark" style="color:var(--ink);">Tech<em style="font-style:italic;color:var(--magenta);">Her</em> <span style="font-size:14px;font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:6px;color:var(--grey);">MW</span></div>
+      <div class="lv-label">Primary — Light Background</div>
+    </div>
+
+    <!-- On blush -->
+    <div class="lv on-blush">
+      <svg width="52" height="52" viewBox="0 0 140 140" fill="none">
+        <circle cx="70" cy="70" r="66" fill="none" stroke="rgba(168,0,92,0.2)" stroke-width="1.5"/>
+        <circle cx="70" cy="70" r="50" fill="none" stroke="rgba(200,136,42,0.4)" stroke-width="1.5"/>
+        <circle cx="70" cy="62" r="14" fill="none" stroke="#7A0044" stroke-width="2.5"/>
+        <line x1="80" y1="52" x2="92" y2="40" stroke="#7A0044" stroke-width="2.5" stroke-linecap="round"/>
+        <polyline points="85,40 92,40 92,47" fill="none" stroke="#7A0044" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="70" y1="76" x2="70" y2="92" stroke="#7A0044" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="62" y1="84" x2="78" y2="84" stroke="#7A0044" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="70" cy="4" r="4" fill="#C8882A"/>
+      </svg>
+      <div class="mini-wordmark" style="color:var(--magenta);">Tech<em style="font-style:italic;color:var(--ink);">Her</em> <span style="font-size:14px;font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:6px;color:var(--magenta-mid);">MW</span></div>
+      <div class="lv-label">Blush Background</div>
+    </div>
+
+    <!-- On magenta -->
+    <div class="lv on-magenta">
+      <svg width="52" height="52" viewBox="0 0 140 140" fill="none">
+        <circle cx="70" cy="70" r="66" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+        <circle cx="70" cy="70" r="50" fill="none" stroke="rgba(245,208,138,0.4)" stroke-width="1.5"/>
+        <circle cx="70" cy="62" r="14" fill="none" stroke="white" stroke-width="2.5"/>
+        <line x1="80" y1="52" x2="92" y2="40" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+        <polyline points="85,40 92,40 92,47" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="70" y1="76" x2="70" y2="92" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="62" y1="84" x2="78" y2="84" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="70" cy="4" r="4" fill="#F5D08A"/>
+        <circle cx="136" cy="70" r="4" fill="#F5D08A"/>
+      </svg>
+      <div class="mini-wordmark" style="color:white;">Tech<em style="font-style:italic;color:var(--gold-light);">Her</em> <span style="font-size:14px;font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:6px;color:rgba(255,255,255,0.4);">MW</span></div>
+      <div class="lv-label">Reversed — Magenta</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MISSION ══════════════════════════════════════════════════════════ -->
+<div class="mission-section">
+  <p class="mission-quote">
+    "TechHer MW exists to <em>disrupt the narrative</em> — because technology was never just for men.
+    We are a global community rooted in Malawi, built for every woman who has ever been
+    underestimated, overlooked, or told she doesn't belong. We break barriers, claim space,
+    and rewrite what's possible — sharing knowledge, amplifying opportunities, and
+    <strong>rising together</strong> from where we are to where we are destined to be.
+    <em>No woman left behind. No potential left untapped.</em>"
+  </p>
+  <div class="mission-attr">— TechHer MW Mission Statement</div>
+</div>
+
+<!-- ══ COLORS ═══════════════════════════════════════════════════════════ -->
+<section class="section-wrap">
+  <div class="section-tag">
+    <span class="num">02</span>
+    <span class="label">Color Palette</span>
+  </div>
+  <div class="color-grid">
+    <div class="swatch">
+      <div class="swatch-block sw-magenta"></div>
+      <div class="swatch-name">Deep Magenta</div>
+      <div class="swatch-hex">#A8005C</div>
+      <div class="swatch-role">Primary brand color. Power, femininity, boldness.</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block sw-magenta-s"></div>
+      <div class="swatch-name">Vibrant Rose</div>
+      <div class="swatch-hex">#E8006F</div>
+      <div class="swatch-role">Accent & CTAs. Energy, action, excitement.</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block sw-blush"></div>
+      <div class="swatch-name">Soft Blush</div>
+      <div class="swatch-hex">#FFD0E6</div>
+      <div class="swatch-role">Backgrounds, cards. Warmth, approachability.</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block sw-gold"></div>
+      <div class="swatch-name">Antique Gold</div>
+      <div class="swatch-hex">#C8882A</div>
+      <div class="swatch-role">Achievement & highlights. Ambition, excellence.</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block sw-gold-l"></div>
+      <div class="swatch-name">Champagne</div>
+      <div class="swatch-hex">#F5D08A</div>
+      <div class="swatch-role">On dark backgrounds. Celebration, warmth.</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-block sw-ink"></div>
+      <div class="swatch-name">Deep Ink</div>
+      <div class="swatch-hex">#1E0A14</div>
+      <div class="swatch-role">Body text. Depth, authority, grounding.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TYPOGRAPHY ════════════════════════════════════════════════════════ -->
+<section class="section-wrap">
+  <div class="section-tag">
+    <span class="num">03</span>
+    <span class="label">Typography</span>
+  </div>
+  <div class="type-grid">
+    <div class="type-card">
+      <div class="type-display">Rise.<br/><em>Lead.</em><br/>Belong.</div>
+      <div class="type-meta">
+        <span class="type-font-name">Playfair Display</span>
+        <span class="type-font-use">Headlines · Logo wordmark · Mission statements · Pull quotes. Bold and italic weights. Combines editorial elegance with commanding presence.</span>
+      </div>
+    </div>
+    <div class="type-card">
+      <span class="type-label-sample">Community · Growth · Power</span>
+      <p class="type-body-sample">
+        We are building something that has never existed before in Malawi — a home where women in technology don't just survive, they lead. Every skill learned, every door opened, every barrier broken here sends a signal to the world.
+      </p>
+      <div class="type-meta">
+        <span class="type-font-name">DM Sans</span>
+        <span class="type-font-use">Body copy · UI text · Captions · Navigation. Light for body, Bold for labels & tags. Clean, modern, and highly readable at all sizes.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ VOICE & TONE ══════════════════════════════════════════════════════ -->
+<section class="section-wrap">
+  <div class="section-tag">
+    <span class="num">04</span>
+    <span class="label">Brand Voice & Tone</span>
+  </div>
+  <div class="voice-grid">
+    <div class="voice-card vc1">
+      <div class="voice-word">Bold</div>
+      <div class="voice-desc">We speak with conviction. We have a point of view and we own it. TechHer MW doesn't whisper — it declares.</div>
+      <span class="voice-pill">Direct</span>
+      <span class="voice-pill">Confident</span>
+      <span class="voice-pill">Unapologetic</span>
+    </div>
+    <div class="voice-card vc2">
+      <div class="voice-word">Real</div>
+      <div class="voice-desc">No corporate fluff, no toxic positivity. We speak from lived experience and acknowledge the challenges women actually face.</div>
+      <span class="voice-pill">Honest</span>
+      <span class="voice-pill">Grounded</span>
+      <span class="voice-pill">Relatable</span>
+    </div>
+    <div class="voice-card vc3">
+      <div class="voice-word">Warm</div>
+      <div class="voice-desc">Bold doesn't mean cold. Every woman who joins is welcomed, seen, and valued. We are a sisterhood, not just a network.</div>
+      <span class="voice-pill">Inclusive</span>
+      <span class="voice-pill">Uplifting</span>
+      <span class="voice-pill">Sisterhood</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SOCIAL MOCKUPS ════════════════════════════════════════════════════ -->
+<section class="section-wrap">
+  <div class="section-tag">
+    <span class="num">05</span>
+    <span class="label">Social Media Look & Feel</span>
+  </div>
+  <p class="social-intro">Every post should feel like it was made with intention — bold enough to stop the scroll, warm enough to make someone feel seen.</p>
+  <div class="social-grid">
+    <div class="social-card sc1">
+      <div class="sc-tag">Member Spotlight</div>
+      <div class="sc-handle">@TechHerMW</div>
+      <div class="sc-headline">She Codes.<br/>She Leads.</div>
+      <div class="sc-sub">Celebrating our community</div>
+    </div>
+    <div class="social-card sc2">
+      <div class="sc-tag">Opportunity Alert</div>
+      <div class="sc-handle">@TechHerMW</div>
+      <div class="sc-headline">Free Course<br/>Inside. 🎓</div>
+      <div class="sc-sub">Weekly resources drop</div>
+    </div>
+    <div class="social-card sc3">
+      <div class="sc-tag">Real Talk</div>
+      <div class="sc-handle">@TechHerMW</div>
+      <div class="sc-headline">Imposter<br/>Syndrome<br/>Is A Liar.</div>
+      <div class="sc-sub">You belong here</div>
+    </div>
+    <div class="social-card sc4">
+      <div class="sc-tag">Tech Trend</div>
+      <div class="sc-handle">@TechHerMW</div>
+      <div class="sc-headline">AI Is<br/>For Her<br/>Too.</div>
+      <div class="sc-sub">Latest in tech, simplified</div>
+    </div>
+    <div class="social-card sc5">
+      <div class="sc-tag">Brand Post</div>
+      <div class="sc-handle">@TechHerMW</div>
+      <svg width="44" height="44" viewBox="0 0 140 140" fill="none" style="margin-bottom:10px;">
+        <circle cx="70" cy="70" r="60" fill="none" stroke="rgba(168,0,92,0.2)" stroke-width="2"/>
+        <circle cx="70" cy="62" r="14" fill="none" stroke="#A8005C" stroke-width="2.5"/>
+        <line x1="80" y1="52" x2="92" y2="40" stroke="#A8005C" stroke-width="2.5" stroke-linecap="round"/>
+        <polyline points="85,40 92,40 92,47" fill="none" stroke="#A8005C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="70" y1="76" x2="70" y2="92" stroke="#A8005C" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="62" y1="84" x2="78" y2="84" stroke="#A8005C" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <div class="sc-headline" style="font-size:24px;">Tech<em style="color:var(--magenta);font-style:italic;">Her</em> MW</div>
+      <div class="sc-sub">Our community, our identity</div>
+    </div>
+    <div class="social-card sc6">
+      <div class="sc-tag">Mission</div>
+      <div class="sc-handle">@TechHerMW</div>
+      <div class="sc-headline">No Woman<br/>Left<br/>Behind.</div>
+      <div class="sc-sub">Our promise to you</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ USAGE GUIDELINES ══════════════════════════════════════════════════ -->
+<section class="section-wrap">
+  <div class="section-tag">
+    <span class="num">06</span>
+    <span class="label">Usage Guidelines</span>
+  </div>
+  <div class="usage-grid">
+    <div class="usage-card usage-do">
+      <div class="usage-title">Always Do</div>
+      <ul>
+        <li>Use Deep Magenta as the primary brand color in all materials</li>
+        <li>Pair Playfair Display headlines with DM Sans body text always</li>
+        <li>Keep "Her" in italic whenever possible — it's the brand's heartbeat</li>
+        <li>Use gold as a celebratory accent for achievements and milestones</li>
+        <li>Maintain generous white space — the brand breathes, it doesn't crowd</li>
+        <li>Always lead with warmth and empowerment in tone and visual choices</li>
+      </ul>
+    </div>
+    <div class="usage-card usage-dont">
+      <div class="usage-title">Never Do</div>
+      <ul>
+        <li>Never use the dark theme — TechHer MW is light, warm, and uplifting</li>
+        <li>Never stretch or distort the logo mark — always keep proportions locked</li>
+        <li>Never use harsh neons or cold blues — they conflict with the brand warmth</li>
+        <li>Never place the logo on a busy background without a clean overlay</li>
+        <li>Never use more than 2 typefaces in any single design piece</li>
+        <li>Never write in a tone that is exclusive, cold, or corporate — always human</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="brand-footer">
+  <div class="footer-logo">Tech<em>Her</em> MW</div>
+  <div class="footer-note">Brand Identity Kit · Version 2.0 · 2025 · Confidential</div>
+</div>
+
+</body>
+</html>
