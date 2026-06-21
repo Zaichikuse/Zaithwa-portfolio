@@ -10,7 +10,7 @@ const links = [
 ];
 
 const socials = [
-  { icon: <Linkedin size={16} />, href: 'https://linkedin.com/in/zaithwa-chikuse', label: 'LinkedIn' },
+  { icon: <Linkedin size={16} />, href: 'https://www.linkedin.com/in/zaithwa-chikuse-2b0628332', label: 'LinkedIn' },
   { icon: <Github   size={16} />, href: 'https://github.com/Zaichikuse',            label: 'GitHub' },
   { icon: <Mail     size={16} />, href: 'mailto:zaichikuse@gmail.com',              label: 'Email' },
 ];

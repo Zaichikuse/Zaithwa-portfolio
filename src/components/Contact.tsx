@@ -7,7 +7,7 @@ const em = `${'zaichikuse'}@${'gmail.com'}`;
 const contactLinks = [
   { icon: <Mail size={18} />,     label: 'Email',    value: em,                href: `mailto:${em}` },
   { icon: <Phone size={18} />,    label: 'Phone',    value: '+265 991 645 387', href: 'tel:+265991645387' },
-  { icon: <Linkedin size={18} />, label: 'LinkedIn', value: 'zaithwa-chikuse', href: 'https://linkedin.com/in/zaithwa-chikuse' },
+  { icon: <Linkedin size={18} />, label: 'LinkedIn', value: 'zaithwa-chikuse-2b0628332', href: 'https://www.linkedin.com/in/zaithwa-chikuse-2b0628332' },
   { icon: <Github size={18} />,   label: 'GitHub',   value: 'Zaichikuse',       href: 'https://github.com/Zaichikuse' },
 ];
 
