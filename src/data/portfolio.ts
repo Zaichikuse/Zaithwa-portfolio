@@ -13,7 +13,6 @@ import {
   braidsByFeliciah,
   maggiesKitchen,
   skinProduct,
-  hairPricelist,
   quinBusinessFlyer,
 } from '../assets/images';
 
